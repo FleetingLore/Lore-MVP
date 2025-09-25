@@ -1,15 +1,13 @@
 // [ * ]
 
 pub struct Element {
-    pub cat: String,
-    pub tag: String,
+    pub element: String,
 }
 
 impl Element {
     fn new() -> Self {
         Element {
-            cat: String::from("&dmn"),
-            tag: String::from("&meta"),
+            element: String::from("_meta"),
         }
     }
 }

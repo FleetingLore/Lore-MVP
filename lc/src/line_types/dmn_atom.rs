@@ -1,15 +1,15 @@
 // + [ * ] = [ * ]
 
 pub struct DmnAtom {
-    pub cat: String,
-    pub tag: String,
+    pub dmn: String,
+    pub value: String,
 }
 
 impl DmnAtom {
     fn new() -> Self {
-        crate::line_types::cat_chain::AtomChain {
-            cat: String::from("&dmn"),
-            tag: String::from("&meta"),
+        DmnAtom {
+            dmn: String::from("&dmn"),
+            value: String::from("_val"),
         }
     }
 }

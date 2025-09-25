@@ -1,15 +1,15 @@
 // + [ * ] - [ * ]
 
 pub struct DmnCat {
+    pub dmn: String,
     pub cat: String,
-    pub tag: String,
 }
 
 impl DmnCat {
     fn new() -> Self {
         DmnCat {
+            dmn: String::from("_dmn"),
             cat: String::from("&dmn"),
-            tag: String::from("&meta"),
         }
     }
 }

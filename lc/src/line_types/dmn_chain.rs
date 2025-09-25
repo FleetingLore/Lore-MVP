@@ -1,14 +1,14 @@
 // + [ * ] # [ * ]
 
 pub struct DmnChain {
-    pub cat: String,
+    pub dmn: String,
     pub tag: String,
 }
 
 impl DmnChain {
     fn new() -> Self {
         DmnChain {
-            cat: String::from("&dmn"),
+            dmn: String::from("_dmn"),
             tag: String::from("&meta"),
         }
     }

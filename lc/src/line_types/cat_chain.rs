@@ -1,13 +1,13 @@
 // - [ * ] # [ * ]
 
-pub struct AtomChain {
+pub struct CatChain {
     pub cat: String,
     pub tag: String,
 }
 
-impl AtomChain {
+impl CatChain {
     fn new() -> Self {
-        AtomChain {
+        CatChain {
             cat: String::from("&dmn"),
             tag: String::from("&meta"),
         }
