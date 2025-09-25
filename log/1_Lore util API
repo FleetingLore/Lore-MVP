@@ -1,0 +1,138 @@
+一次在这里发文。本人编程技术不咋地，根据自己实力写写是了。
+
+# crate 结构
+
+这里用自己整的 Lore 语言表示文件目录。
+
+```lore
+- util
+  + examples
+    example.txt # 1
+
+  + src
+    lib.rs # 2
+    file.rs # 3
+    indent.rs # 4
+    split.rs # 5
+
+  - target # _
+
+  Cargo.lock
+  Cargo.toml
+  README.md
+```
+
+# 主要文件
+
+### 测试样例
+
+`./examples/example.txt`
+```text
+a b c
+def ghi
+jkl
+
+mn
+     o
+p q r s t u v w x y z
+```
+### src
+
+`./src/lib.rs`
+```rust
+pub mod file;
+pub mod split;
+mod indent;
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_read_file() {
+        // Import models.
+        use file::read_file;
+
+        // Construct data for test.
+        let data: Vec<String> = read_file("./examples/example.txt");
+
+        // Check data.
+        println!("[test_read_file]");
+        println!("{}", data.join("\n"));
+    }
+
+    #[test]
+    fn test_split_line() {
+        // Import models.
+        use split::split_line;
+
+        // Construct data for test.
+        let test_string = "a b c def g h i j k l    m      n";
+        let split_test_string = split_line(test_string);
+
+        // Check data.
+        println!("[test_split_line]");
+        for (i, tokens) in split_test_string.iter().enumerate() {
+            println!("{i} |  {:?}", tokens);
+        }
+    }
+
+    #[test]
+    fn test_indent_line() {
+        // Import models.
+        use indent::indent_line;
+
+        // Construct data for test.
+        let test_cases = vec![
+            "0",
+            " 1",
+            "  2",
+            "   3",
+            "    4",
+            "     5",
+            "   "
+        ];
+
+        // Check data.
+        println!("[test_indent_line]");
+        for (i, case) in test_cases.iter().enumerate() {
+            let indent_count = indent_line(case);
+            println!("{i} | [{}] -> {} indents", case, indent_count);
+        }
+    }
+}
+```
+
+`file.rs`
+```rust
+pub fn read_file(file_path: &str) -> Vec<String> {
+    std::fs::read_to_string(std::path::PathBuf::from(file_path))
+        .expect("[1]")
+        .lines()  // &str
+        .map(|s| s.to_string())
+        .collect()
+}
+```
+
+`indent.rs`
+```rust
+use std::ops::Div;
+
+pub fn indent_line(line: &str) -> usize {
+        line
+            .chars()
+            .take_while(|c| c.is_whitespace())
+            .count()  // usize
+            .div(2)
+}
+```
+
+`split.rs`
+```rust
+pub fn split_line(line: &str) -> Vec<String> {
+    line
+        .split_whitespace()  // &str
+        .map(|s| s.to_string())
+        .collect()
+}
+```

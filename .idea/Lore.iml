@@ -2,10 +2,30 @@
 <module type="EMPTY_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/lir/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lir/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lore/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lore/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lc/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lir/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/util/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/util/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/util/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/util/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/util/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Lir/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Lir/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Lir/target" />
       <excludeFolder url="file://$MODULE_DIR$/Lir/target" />
+      <excludeFolder url="file://$MODULE_DIR$/lir/target" />
+      <excludeFolder url="file://$MODULE_DIR$/lore/target" />
+      <excludeFolder url="file://$MODULE_DIR$/util/target" />
+      <excludeFolder url="file://$MODULE_DIR$/lir/target" />
+      <excludeFolder url="file://$MODULE_DIR$/lore/target" />
+      <excludeFolder url="file://$MODULE_DIR$/util/target" />
+      <excludeFolder url="file://$MODULE_DIR$/lc/target" />
+      <excludeFolder url="file://$MODULE_DIR$/lir/target" />
+      <excludeFolder url="file://$MODULE_DIR$/util/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
