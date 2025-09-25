@@ -13,3 +13,11 @@ impl DmnAtom {
         }
     }
 }
+
+use std::fmt::{Display, Formatter};
+
+impl Display for DmnAtom {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "+ {} = {}", self.dmn, self.value)
+    }
+}

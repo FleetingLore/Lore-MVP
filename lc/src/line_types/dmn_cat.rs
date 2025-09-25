@@ -13,3 +13,11 @@ impl DmnCat {
         }
     }
 }
+
+use std::fmt::{Display, Formatter};
+
+impl Display for DmnCat {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "+ {} - {}", self.dmn, self.cat)
+    }
+}

@@ -1,62 +1,54 @@
 pub mod atom_meta;
-pub use atom_meta::AtomMeta;
-
-pub mod anchor_chain;
-pub use anchor_chain::AnchorChain;
-
+pub mod anchor_drop;
 pub mod anchor_meta;
-pub use anchor_meta::AnchorMeta;
-
 pub mod cat_meta;
-pub use cat_meta::CatMeta;
-
 pub mod cat_atom;
-pub use cat_atom::CatAtom;
-
-pub mod cat_chain;
-pub use cat_chain::CatChain;
-
+pub mod cat_drop;
 pub mod dmn_meta;
-pub use dmn_meta::DmnMeta;
-
 pub mod dmn_atom;
-pub use dmn_atom::DmnAtom;
-
-pub mod dmn_chain;
-pub use dmn_chain::DmnChain;
-
+pub mod dmn_drop;
 pub mod dmn_cat;
+pub mod meta;
+pub use atom_meta::AtomMeta;
+pub use anchor_drop::AnchorDrop;
+pub use anchor_meta::AnchorMeta;
+pub use cat_meta::CatMeta;
+pub use cat_atom::CatAtom;
+pub use cat_drop::CatDrop;
+pub use dmn_meta::DmnMeta;
+pub use dmn_atom::DmnAtom;
 pub use dmn_cat::DmnCat;
+pub use dmn_drop::DmnDrop;
+pub use meta::Element;
 
-pub mod element;
-pub use element::Element;
-
-pub enum AtomLine {
+pub enum AsAtom {
     FromMeta  (AtomMeta)
 }
-
-pub enum AnchorLine {
-    FromChain (AnchorChain),
+pub enum AsAnchor {
+    FromDrop(AnchorDrop),
     FromMeta  (AnchorMeta)
 }
-
-pub enum CatLine {
+pub enum AsCat {
     FromAtom  (CatAtom),
-    FromChain (CatChain),
+    FromDrop(CatDrop),
     FromMeta  (CatMeta)
 }
-
-pub enum DmnLine {
+pub enum AsDmn {
     FromAtom  (DmnAtom),
-    FromChain (DmnChain),
+    FromDrop(DmnDrop),
     FromCat   (DmnCat),
     FromMeta  (DmnMeta)
 }
 
 pub enum Line {
-    Atom      (AtomLine),
-    Anchor    (AnchorLine),
-    Category  (CatLine),
-    Domain    (DmnLine),
+    Atom      (AsAtom),
+    Anchor    (AsAnchor),
+    Category  (AsCat),
+    Domain    (AsDmn),
     Element   (Element)
+}
+impl Line {
+    fn display(&self, indent: usize) -> String {
+        format!("{indent}{self}")
+    }
 }

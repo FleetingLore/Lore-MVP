@@ -13,3 +13,10 @@ impl AtomMeta {
         }
     }
 }
+
+use std::fmt::{Display, Formatter};
+impl Display for AtomMeta {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{} = {}", self.element, self.value)
+    }
+}

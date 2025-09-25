@@ -5,9 +5,17 @@ pub struct AnchorMeta {
 }
 
 impl AnchorMeta {
-    fn new() -> Self {
+    pub fn new() -> Self {
         AnchorMeta {
             tag: String::from("&meta"),
         }
+    }
+}
+
+use std::fmt::{Display, Formatter};
+
+impl Display for AnchorMeta {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "# {}",self.tag)
     }
 }

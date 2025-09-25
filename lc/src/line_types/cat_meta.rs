@@ -11,3 +11,11 @@ impl CatMeta {
         }
     }
 }
+
+use std::fmt::{Display, Formatter};
+
+impl Display for CatMeta {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "- {}", self.cat)
+    }
+}

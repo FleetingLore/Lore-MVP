@@ -1,3 +1,5 @@
+mod display_lore_line_types;
+
 #[cfg(test)]
 mod tests {
     #[test]
