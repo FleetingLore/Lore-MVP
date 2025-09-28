@@ -5,3 +5,9 @@ edition = "2024"
 
 [dependencies]
 util = { path="../util" }
+
+[features]
+default = ["category"]
+category = []
+domain = []
+anchor = ["category", "domain"]
